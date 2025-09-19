@@ -14,6 +14,7 @@ exports.register = async (req, res) => {
     const token = generateToken(user._id);
     res.status(201).json({ token, user: { id: user._id, name: user.name } });
   } catch (err) {
+    console.error(err)
     res.status(500).json({ msg: 'Server error'});
   }
 };
