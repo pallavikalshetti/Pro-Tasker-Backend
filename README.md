@@ -25,8 +25,8 @@ The backend of Pro-Tasker is the core API that powers the project management sys
 -CORS for security
 
 # Repository Link:
-# GitHub Repository: Pro-Tasker Backend
-# Live Demo on Render: Pro-Tasker Backend (Render)
+# GitHub Repository: Pro-Tasker Backend => https://github.com/pallavikalshetti/Pro-Tasker-Backend
+# Live Demo on Render: Pro-Tasker Backend (Render) => https://pro-tasker-backend-y5vx.onrender.com
 
 ## Setup & Installation
 Clone the repository:
@@ -50,27 +50,30 @@ The server will run on http://localhost:3000
 User Authentication
 POST /api/auth/register  - Register a new user
 POST /api/auth/login   - Login and receive a JWT token
+
 Projects
 GET /api/projects  -  Get all projects created by the logged-in user
 POST /api/projects  -  Create a new project
 GET /api/projects/:id  -  Get details of a specific project
 PUT /api/projects/:id  -  Update a project
 DELETE /api/projects/:id  -  Delete a project
+
 Tasks
-POST /api/projects/:projectId/tasks  -  Create a new task within a project
-GET /api/projects/:projectId/tasks  -  Get all tasks in a project
+POST /api/tasks/project/:projectId  -  Create a new task within a project
+GET /api/tasks/project/:projectId  -  Get all tasks in a project
+GET /api/tasks/:id  -  Get a specific/single task
 PUT /api/tasks/:id  -  Update a task
 DELETE /api/tasks/:id  -  Delete a task
 
 
 # Authentication
 JWT Authentication is used to protect routes that require user login. The token is passed in the Authorization header as Bearer <token> for protected API endpoints.
+# Authorization: Bearer <your_token_here>
 To test endpoints requiring authentication, add the JWT token to the Authorization header of your API requests.
 Password Security: All passwords are hashed using bcrypt before being stored in MongoDB.
 Ownership-based Authorization:
 Users can only access or modify their own projects and tasks.
 Middleware checks token and ownership on every protected route.
-# Authorization: Bearer <your_token_here>
 
 
 # Running the Application
